@@ -19,6 +19,12 @@ def reachable(graph, start_node):
     while len(frontier) != 0:
         ###TODO
         pass
+        current_node = frontier.pop()
+        neighbors = graph[current_node]
+        for neighbor in neighbor:
+            if neighbor not in result: 
+                result.add(neighbor)
+                frontier.add(neighbor)
     return result
 
 
@@ -26,8 +32,12 @@ def reachable(graph, start_node):
 
 
 def connected(graph):
-    ### TODO
-    pass
+    reachable_nodes = reachable(graph, start_node)
+     if not graph:  
+        return True
+
+    start_node = next(iter(graph)) 
+    return len(reachable_nodes) == len(graph)
 
 
 
@@ -37,6 +47,14 @@ def n_components(graph):
     Returns:
       the number of connected components in an undirected graph
     """
-    ### TODO
-    pass
+    if not graph: 
+        return 0
 
+    components = 0
+    visited = set()
+    for node in graph: 
+        if node not in visited: 
+            reachable_nodes = reachable(graph, node)
+            visited.update(reachable_nodes)
+            components =+ 1
+    return components
