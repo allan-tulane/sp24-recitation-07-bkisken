@@ -14,4 +14,4 @@ Place all written answers from `recitation-07.md` here for easier grading.
 
 - **5)** O (n + m)
 
-- **7)**
+- **7)**  The work is O(n^2). Assessing connectivity requires traversing each entry in the matrix.  The computational workload is expanded beyond just the existing edges.
